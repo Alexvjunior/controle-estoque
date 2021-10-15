@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Código</th>
+      <th scope="col">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for p in produtos %}
+    <tr>
+      <td>{{p.codigo}}</td>
+      <td>{{p.nome}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock container %}
+
+
