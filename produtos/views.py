@@ -4,5 +4,5 @@ from .service import ProdutoService
 _SERVICE = ProdutoService()
 
 def home(request):
-    # produtos = _SERVICE.buscar_todos_produtos()
+    produtos = _SERVICE.buscar_todos_produtos()
     return render(request, 'home.html', context={"produtos":produtos})
