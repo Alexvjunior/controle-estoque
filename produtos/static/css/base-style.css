@@ -1,3 +1,38 @@
-#corpo{
-    padding: 20px;
+#cardProdutos{
+    top: 100px;
+    margin: auto;
+    height: 300px;
+    max-width: 30rem;
+    cursor: pointer;
+    border-radius: 30px;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
 }
+
+#cardEntradaSaida{
+    top: 100px;
+    margin: auto;
+    height: 300px;
+    max-width: 30rem;
+    vertical-align: middle;
+    border-radius: 30px;
+    border-radius: 30px;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
+}
+p{
+    text-align: center;
+    font-size: 50px !important;
+    padding-top: 80px;
+}
+
+
+#branco{
+    width: 50px;
+}
+
+#cardProdutos:hover{
+    color: red;
+    }

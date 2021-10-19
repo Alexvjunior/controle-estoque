@@ -1,24 +1,29 @@
 {% extends 'base.html' %}
-
-
+{% load static %}
+<link rel="stylesheet" href="{% static  'css/base-style.css' %}">
 {% block container %}
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Código</th>
-      <th scope="col">Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for p in produtos %}
-    <tr>
-      <td>{{p.codigo}}</td>
-      <td>{{p.nome}}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+
+<div class="card-group">
+  <div id="cardProdutos" class="card text-white bg-secondary mb-3">
+    <div class="card-body">
+      <p class="card-text">Produtos</p>
+    </div>
+  </div>
+
+  <div id="cardEntradaSaida" class="card text-white bg-secondary mb-3">
+    <div class="card-body">
+      <p>Entrada/Saida</p>
+    </div>
+  </div>
+  
+</div>
+
+
+  <script>
+    document.getElementById("cardProdutos").onclick = function() {
+      window.location.href = "{% url 'home_produtos' %}";
+    };
+  </script>
 
 {% endblock container %}
-
 
