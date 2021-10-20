@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
-{% load static %}
-<link rel="stylesheet" href="{% static  'css/base-style.css' %}">
+
+
 {% block container %}
 
-<div class="card-group">
+
+  <div class="card-group">
   <div id="cardProdutos" class="card text-white bg-secondary mb-3">
     <div class="card-body">
       <p class="card-text">Produtos</p>
@@ -15,7 +16,7 @@
       <p>Entrada/Saida</p>
     </div>
   </div>
-  
+
 </div>
 
 
@@ -24,6 +25,9 @@
       window.location.href = "{% url 'home_produtos' %}";
     };
   </script>
+    
 
 {% endblock container %}
+
+
 
