@@ -3,4 +3,33 @@
 
 {% block container %}
 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Código</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for p in produtos %}
+    <tr>
+      <td>{{p.nome}}</td>
+      <td>{{p.codigo}}</td>
+      <td>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <form method="POST" action="{% url 'deletar_produtos' p.id%}" style="padding-right: 20px">{% csrf_token %}
+                <button type="submit" value="Delete" class="btn btn-outline-danger">Excluir</button>
+            </form>
+
+            <form method="GET" action="{% url 'home_editar_produto' p.id%}">{% csrf_token %}
+                <button type="submit" class="btn btn-outline-secondary">Editar</button>
+            </form>
+        </div>
+      </td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+
 {% endblock container %}
