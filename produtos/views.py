@@ -1,7 +1,7 @@
 import uuid
-from django.shortcuts import render
-from rest_framework import serializers
+from django.shortcuts import redirect, render
 from django.contrib import messages
+from rest_framework.serializers import Serializer
 from .service import ProdutoService
 from .serializers import ProdutoSerializer
 from django.http import HttpResponseRedirect
@@ -14,6 +14,12 @@ def home(request):
 def home_produtos(request, id:uuid=None):
     if request.method == "POST" and id is not None:
         _SERVICE.deletar_produto_por_id(id)
+    elif request.method == "POST" and id is None:
+        serializer = ProdutoSerializer(data=request.POST)
+        if not serializer.is_valid():
+            messages.error(request, serializer.errors)
+        else:
+            serializer.save()
     produtos = _SERVICE.buscar_todos_produtos()
     return render(request, 'home-produtos.html', context={"produtos":produtos})
 
@@ -26,10 +32,7 @@ def home_editar_produto(request, id:uuid):
     message = _SERVICE.editar_produto(produto, request.POST)
     if message is not None:
         messages.error(request, message)
-        messages.warning(request, "ERROR")
-        messages.info(request, "INFO")
         return render(request, template_name='home-editar-produto.html', context={"produto":produto})
     messages.success(request, "Salvo com sucesso")
     return render(request, 'home-editar-produto.html', context={"produto":produto})
-    # return HttpResponseRedirect("/produtos/")
     
