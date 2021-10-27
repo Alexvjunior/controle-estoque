@@ -12,7 +12,7 @@ def home(request):
     return render(request, 'home.html')
 
 def home_produtos(request, id:uuid=None):
-    if request.method == "POST" and id is not None:
+    if id is not None:
         _SERVICE.deletar_produto_por_id(id)
     elif request.method == "POST" and id is None:
         serializer = ProdutoSerializer(data=request.POST)
