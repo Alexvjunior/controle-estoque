@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # APPS
     'produtos',
+    'historicos',
 
 ]
 
