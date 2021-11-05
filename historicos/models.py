@@ -15,7 +15,7 @@ class HistoricoModel(TimeStampedModel):
 
     produto_id = models.ForeignKey(
         ProdutoModel,
-        on_delete=models.CASCADE
+        on_delete=models.DO_NOTHING
     )
 
     data_entrada = models.DateField(auto_now=True)
@@ -26,9 +26,11 @@ class HistoricoModel(TimeStampedModel):
 
     descricao = models.TextField()
 
+    quantidade = models.PositiveSmallIntegerField()
+
 
     def __str__(self) -> str:
-        return self.id
+        return f"{self.id}"
 
     class Meta:
         db_table = 'HISTORICO'

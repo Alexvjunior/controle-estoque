@@ -22,9 +22,8 @@ class ProdutoModel(TimeStampedModel):
         unique=True,
     )
 
-
     def __str__(self) -> str:
-        return self.nome
+        return f"Nome: {self.nome}; Código: {self.codigo}"
 
     class Meta:
         db_table = 'PRODUTO'
