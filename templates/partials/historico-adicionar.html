@@ -1,0 +1,54 @@
+
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#change-password">
+  Adicionar
+</button>
+
+<div id="change-password" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" action="{% url 'home_historicos'%}">{% csrf_token %}
+      <div class="modal-body">
+
+        <select class="form-select" aria-label="Default select example" name="produto_id">
+          <option selected value="">Produtos</option>
+          {% for p in produtos %}
+          <option value={{p.id}}>{{p.nome}}</option>
+          {% endfor %}
+        </select>
+        
+        <div class="form-group">
+            <label for="nome">Funcionário</label>
+            <input type="text" value="{{historico.funcionario}}" name="funcionario" class="form-control" id="nome" aria-describedby="emailHelp" placeholder="Escreva seu nome">
+        </div>
+
+        <div class="form-group">
+            <label for="codigo">Tipo</label>
+            <input type="text"  value="{{historico.tipo}}" name="tipo" class="form-control" id="codigo" placeholder="Código do Produto">
+        </div>
+
+        <div class="form-group">
+            <label for="codigo">Descriçao</label>
+            <input type="text"  value="{{historico.descricao}}" name="descricao" class="form-control" id="codigo" placeholder="Código do Produto">
+        </div>
+
+        <div class="form-group">
+            <label for="codigo">Quantidade</label>
+            <input type="text"  value="{{historico.quantidade}}" name="quantidade" class="form-control" id="codigo" placeholder="Código do Produto">
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

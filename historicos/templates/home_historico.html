@@ -1,7 +1,34 @@
 {% extends 'base.html' %}
 
-
 {% block container %}
+
+{% include 'partials/historico-adicionar.html' %}
+
+
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Funcionario</th>
+        <th>Tipo</th>
+        <th>Descricao</th>
+        <th>Quantidade</th>
+        <th>Cod. Produto</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for h in historicos %}
+        <tr>
+            <td>{{h.funcionario}}</td>
+            <td>{{h.tipo}}</td>
+            <td>{{h.descricao}}</td>
+            <td>{{h.quantidade}}</td>
+            <td>{{h.produto_id.codigo}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
 
 {% endblock container %}
 
